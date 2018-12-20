@@ -1,53 +1,40 @@
 #include <stdio.h>
-
 #define CAPACITY 5
+void push(int);
 int stack[CAPACITY],top=-1;
-
-int peak();
-int isEmpty();
-void push(int element);
 int isFull();
 
+
 void main(){
-	push(10);
-	push(20);
-	push(30);
-	push(40);
-	push(50);
+	int ch;
+	for(int i=0;i<6;i++){
+		scanf("%d",&ch);
+		push(ch);
+	}
+
 }
-void push(int element){
+
+
+void push(int ch){
 	if (isFull()){
 		printf("Stack is full\n");
+
 	}
 	else{
 		top=top+1;
-		element=stack[top];
-		printf("inserted\n");
-	}
-}
-int isFull(){
-	if (top==CAPACITY-1){
-		return 0;
-	}
-		
-	else{
-		return 1;
-	}
-		
-}
-
-int peak(){
-	if (isEmpty()){
-		return 0;
+		stack[top]=ch;
+		printf("Inserted\n");
 
 	}
-	else{
-		return stack[top];
+}
+
+int	isFull(){
+		if(top==CAPACITY-1){
+			return 1;
+		}
+		else{
+			return 0;
+		}
 	}
-}
-int isEmpty(){
-	if(top==-1)
-		return 0;
-	else
-		return 1;
-}
+
+
