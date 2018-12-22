@@ -8,18 +8,24 @@ struct node{
 
 struct node* root = NULL;
 
+
 void data(int);
 void print();
 void append(int);
+int len;
+void length();
+
+
 
 void main(){
 	data(100);
-	data(20);
-	data(50);
-	print();
 	append(10);
 	print();
-}
+	length();
+	append(20);
+	print();
+	length();
+	}
 
 
 void data(int data){
@@ -36,12 +42,17 @@ void data(int data){
 
 void print(){
 	struct node* temp;
-	printf("[data] =>");
-	while (temp!=NULL){
-		printf("%d =>",temp->data );
-		temp = temp->link;
+	temp = root;
+	if(temp == NULL){
+		printf("Linked list is empty\n");
 	}
-	printf("[null]\n");
+	else{
+		while(temp!=NULL){
+			printf("%d-->",temp->data);
+			temp = temp->link;
+		}
+		printf("\n");
+	}
 }
 
 void append(int data){
@@ -62,10 +73,22 @@ void append(int data){
 		struct node* p;
 		p = root;
 		while(p->link!=NULL){
-			p = p->link;
+			p=p->link;
 		}
-		p=temp;
+		p->link = temp;
 
 	}
+
+}
+
+void length(){
+	struct node* temp;
+	int count=0;
+	temp=root;
+	while(temp!=NULL){
+		count++;
+		temp = temp->link;
+	}
+	printf("%d\n",count);
 
 }
