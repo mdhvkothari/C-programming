@@ -10,11 +10,13 @@ struct  node
 struct node* root =  NULL;
 void insert(int);
 void printlist();
+
 void main(){
 	insert(10);
 	insert(22);
 	insert(23);
-	printlist();	
+	printlist();
+	
 }
 
 
