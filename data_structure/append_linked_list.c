@@ -12,10 +12,9 @@ struct node* root = NULL;
 void data(int);
 void print();
 void append(int);
-int len;
 void length();
-
-
+void addstart(int );
+void between();
 
 void main(){
 	data(100);
@@ -25,6 +24,11 @@ void main(){
 	append(20);
 	print();
 	length();
+	addstart(5);
+	print();
+	length();
+	between();
+	print();
 	}
 
 
@@ -92,3 +96,40 @@ void length(){
 	printf("%d\n",count);
 
 }
+
+void addstart(int data){
+	struct node* temp;
+
+	temp = (struct node*)malloc(sizeof(struct node));
+
+	temp->link = root;
+
+	temp->data = data;
+
+	root = temp;
+
+}
+
+
+void between(){
+	struct node* temp;
+	struct node* p;
+	p = root;
+	temp = (struct node*)malloc(sizeof(struct node));
+
+
+	temp->data = 88;
+
+	temp->link = NULL;
+
+	for(int i=0;i<1;i++){
+		p = p->link;
+	}	
+
+	temp->link = p->link;
+	p->link = temp;
+
+
+}
+
+
