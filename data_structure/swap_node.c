@@ -20,7 +20,7 @@ void main(){
 	add(50);
 	print();
 	//swap 30 and 40
-	swap(1);
+	swap(3);
 	print();
 }
 
@@ -66,9 +66,5 @@ void swap(int place){
 	q->link = r->link;
 	r->link = q;
 	p->link = r; 
-
-
-
-
 
 }
