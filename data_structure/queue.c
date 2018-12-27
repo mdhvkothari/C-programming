@@ -57,9 +57,8 @@ void delete(){
 		//and we can not delete the data it overwrite
 		for(int i=0;i<rear-1;i++){
 			queue[i] = queue[i+1];
-			rear--;
-			printf("%d\n", rear);
 		}
+		rear--;
 	}
 
 }
