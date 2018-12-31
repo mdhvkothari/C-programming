@@ -11,9 +11,13 @@ struct node{
 struct node* root = NULL ;
 
 void append(int);
+void print();
 
 void main(){
 	append(10);
+	print();
+	append(20);
+	print();
 
 }
 
@@ -50,4 +54,16 @@ void append(int data){
 
 	}
 
+}
+
+
+void print(){
+	struct node* temp;
+	temp = root ;
+
+	while(temp!=NULL){
+		printf("%d-->",temp->data);
+		temp = temp->right;
+	}
+	printf("\n");
 }
