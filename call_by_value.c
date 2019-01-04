@@ -22,5 +22,3 @@ void pointer(int* x, int* y){
 
 
 
-
-gcc =

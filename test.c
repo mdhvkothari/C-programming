@@ -1,10 +1,21 @@
 #include <stdio.h>
 
+struct {
+	char name[20];
+	int age;
+}st1,st2;
+
 void main(){
-	//we use CAPACITY if we use stack[capacity] is shown an error
-	// hence we should declare it as a pre processing phase its a macro.
-	#define CAPACITY 5
+	for (int i=0;i<6;i++){
+		scanf("%c",&st1.name[i]);	
+	}
+	
+	printf("%s\n",st1.name );
 
-	int stack[CAPACITY];
-
+	for (int i=0;i<6;i++){
+		scanf("%c",&st2.name[i]);	
+	}
+	
+	printf("%s\n",st2.name );
+	
 }
