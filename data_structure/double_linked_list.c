@@ -14,6 +14,7 @@ void append(int);
 void print();
 void addfirst(int);
 void length();
+void addafter(int);
 
 void main(){
 	append(10);
@@ -25,15 +26,17 @@ void main(){
 	addfirst(50);
 	print();
 	length();
+	addafter(2);
+	print();
 
 
 }
 
 
 void append(int data){
-	
+
 	struct node* temp;
-	
+
 	temp = (struct node*)malloc(sizeof(struct node));
 
 	temp->data = data;
@@ -80,9 +83,9 @@ void print(){
 void addfirst(int data){
 
 	struct node* temp;
-	
+
 	temp = (struct node*)malloc(sizeof(struct node));
-	
+
 	temp->data = data;
 	temp->left = NULL;
 	temp->right = NULL;
@@ -113,4 +116,28 @@ void length(){
 		temp = temp->right;
 	}
 	printf("%d\n",count );
+}
+
+void addafter(int position){
+	struct node *temp,*p;
+	int data=100;
+	int i=1;
+	temp = (struct node*)malloc(sizeof(struct node));
+	temp->data = data;
+	temp->right = NULL;
+	temp->left = NULL;
+	p = root;
+	while(i<position){
+		 p = p->right;
+		 i++;
+	 }
+	temp->right = p->right;
+	p->right->left = temp;
+	temp->right = p;
+	p->right = temp;
+
+
+
+
+
 }
