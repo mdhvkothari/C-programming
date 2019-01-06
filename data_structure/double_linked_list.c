@@ -26,7 +26,7 @@ void main(){
 	addfirst(50);
 	print();
 	length();
-	addafter(2);
+	addafter(3);
 	print();
 
 
@@ -118,12 +118,12 @@ void length(){
 	printf("%d\n",count );
 }
 
+
 void addafter(int position){
 	struct node *temp,*p;
-	int data=100;
 	int i=1;
 	temp = (struct node*)malloc(sizeof(struct node));
-	temp->data = data;
+	temp->data = 100;
 	temp->right = NULL;
 	temp->left = NULL;
 	p = root;
@@ -133,7 +133,7 @@ void addafter(int position){
 	 }
 	temp->right = p->right;
 	p->right->left = temp;
-	temp->right = p;
+	temp->left = p;
 	p->right = temp;
 
 
