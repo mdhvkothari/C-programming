@@ -11,7 +11,6 @@ struct node* root = NULL;
 
 
 void insert(int);
-
 void main(){
   insert(50);
 
