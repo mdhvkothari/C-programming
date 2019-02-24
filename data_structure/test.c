@@ -1,40 +1,56 @@
 #include <stdio.h>
-#define CAPACITY 5
-void push(int);
-int stack[CAPACITY],top=-1;
-int isFull();
+#include <stdlib.h>
 
+struct node{
+    int data;
+    struct node* link;
+};
+
+struct node* root=NULL;
+
+void append(int);
+void print();
 
 void main(){
-	int ch;
-	for(int i=0;i<6;i++){
-		scanf("%d",&ch);
-		push(ch);
-	}
-
+    append(10);
+    print();
+    append(20);
+    append(30);
+    append(40);
+    print();
+    
 }
 
 
-void push(int ch){
-	if (isFull()){
-		printf("Stack is full\n");
-
-	}
-	else{
-		top=top+1;
-		stack[top]=ch;
-		printf("Inserted\n");
-
-	}
+void append(int data){
+    struct node* temp;
+    temp = (struct node*)malloc(sizeof(struct node));
+    temp->data = data;
+    temp->link = NULL;
+    if(root==NULL){
+        root = temp;
+    }
+    else{
+        struct node* p;
+        p=root;
+        while(p->link!=NULL){
+            p=p->link;
+        }
+        p->link=temp;
+        temp->link=root;
+    }
 }
 
-int	isFull(){
-		if(top==CAPACITY-1){
-			return 1;
-		}
-		else{
-			return 0;
-		}
-	}
+void print(){
+    struct node* temp;
+    temp=root;
+    int i=0;
+    while(i==2){
+        printf("%d ->",temp->data);
+        temp = temp->link;
+        i++;
+    }
+    printf("\n");
+}
 
 
