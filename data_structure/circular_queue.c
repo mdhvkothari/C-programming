@@ -1,71 +1,64 @@
 #include <stdio.h>
 
-#define CAPACITY 5
-void insert(int);
+#define size 5
+
+void add(int data);
 void delete();
-void tranverse();
-int front,rear=-1;
-int cqueue[CAPACITY];
-int data;
+void print();
+int queue[size];
+int front=-1,rear=-1;
+
 void main(){
-  insert(10);
-  insert(20);
-  delete();
-  tranverse();
-
+	add(10);
+	add(20);
+	print();
+	delete();
+	print();
 }
 
 
-void insert(int element){
-  if(front == rear+1  || rear == CAPACITY-1 ){
-
-  }
-  else if(front==-1&&rear==-1){
-    front=rear=0;
-    cqueue[rear] = element;
-
-
-  }
-  else if(rear = CAPACITY-1){
-    rear=0;
-    cqueue[rear] = element;
-
-  }
-  else{
-    rear ++;
-    cqueue[rear] = element;
-  }
-  printf("Sucessfully insert\n" );
+void add(int data){
+	if((front==rear+1) || (front==0 && rear == size-1)){
+		printf("Circular Queue is full!! \n");
+	}
+	else{
+		if(front == -1) front = 0;
+		rear = (rear+1)%size;
+		queue[rear] = data;
+		printf("Inserted -> %d \n",data);
+	}
 }
-
 
 void delete(){
-  if(front==-1 && rear == -1){
-    printf("Queue is empty\n");
-  }
-  else if(front==rear){
-    front=rear=-1;
-  }
-  else if(front==CAPACITY-1){
-    data = cqueue[front];
-    front =0;
-  }
-  else{
-    data  = cqueue[front];
-    front++;
-  }
-  printf("%d Sucessfully deleted\n",data );
+	if(front == -1 )
+		printf("Stack is empty \n");
+	else{
+		int element;
+		element = queue[front];
+		if(front==rear){
+			front = -1;
+			rear = -1;
+		}
+		else{
+			front = (front+1)%size;
+			
+		}
+		printf("Element deleted -> %d \n",element);
+		
+	}
 }
 
-// not working
-void tranverse(){
-  if(front==-1){
-    printf("Queue is empty\n");
-  }
-
-  else if(front==0){
-      for (int i=0;i<CAPACITY;i++){
-        printf("%d\n",cqueue[i] );
-      }
-  }
+void print(){
+	if(front == -1){
+		printf("Queue is empty \n");
+		
+	}
+	else{
+		int i=0;
+		for(i=front;i!=rear ; i= (i+1)%size){
+			printf("%d ->",queue[i]);
+		}
+		printf("%d ",queue[i]);
+		printf("\n");
+	}
 }
