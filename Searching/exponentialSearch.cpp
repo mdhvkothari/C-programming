@@ -1,5 +1,5 @@
 #include <bits/stdc++.h> 
-
+//O(log n)
 using namespace std; 
 
 int binarySearch(int arr[],int,int,int);
@@ -11,7 +11,7 @@ int exponentialSearch(int arr[],int n ,int x){
 	
 	int i=1;
 	while(i<n && arr[i]<=x)
-	i=i*2;
+		i=i*2;
 	
 	return binarySearch(arr,i/2,min(i,n),x);
 }
