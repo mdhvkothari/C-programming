@@ -2,6 +2,8 @@
 #include<stdlib.h> 
 #include<stdio.h> 
 //worse time taken by merge sort is O(n logn)
+//merge sort take space complexity of O(n) and it not in-place
+
 
 // Merges two subarrays of arr[]. 
 // First subarray is arr[l..m] 
