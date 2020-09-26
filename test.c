@@ -1,43 +1,30 @@
-#include <stdio.h>
-#include <stdlib.h> 
-
-
-void search(int arr[],int lenght){
-	int i,j,element,index;
-	for(i=0;i<lenght;i++){
-		int count=0;
-		element = arr[i];
-		for(j=0;j<lenght;j++){
-			if(i!=j){
-				if(arr[j]!=element)
-					count++;
-			}
+#include<stdio.h>
+#include<math.h>
+void main(){
+	int a,b,i,j,rem,temp1,temp2,sum,n=0;
+	scanf("%d %d",&a,&b);
+	for(i=a;i<=b;i++){
+		temp1=i;
+		temp2=i;
+		
+		while(temp1!=0){
+			temp1/=10;
+			++n;
 		}
-		index++;
-		if(count==lenght-1){
-			printf("%d \n",arr[index-1]);
-			break;
-			
+		while(temp2!=0){
+			rem = temp2%10;
+			sum += pow(rem,n);
+			temp2 = temp2/10;
 		}
-	}	
-
-}
-
-	
-
-int main(){
-	int testCase,i=0,j,length;
-	int *v;
-	scanf("%d",&testCase);
-	while(i<testCase){
-		scanf("%d",&length);
-		int arr[length];
-		v = malloc(length * sizeof(int));
-		for(j=0;j<length;j++){
-			scanf("%d",&arr[j]);
+		if(sum == i){
+			printf("%d ",i);
 		}
-		free(v);
-		i++;
-		search(arr,length);
+		n = 0;
+		sum= 0;
+		
 	}
+	
 }
+
+
+
