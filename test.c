@@ -1,30 +1,19 @@
 #include<stdio.h>
-#include<math.h>
+
 void main(){
-	int a,b,i,j,rem,temp1,temp2,sum,n=0;
-	scanf("%d %d",&a,&b);
-	for(i=a;i<=b;i++){
-		temp1=i;
-		temp2=i;
-		
-		while(temp1!=0){
-			temp1/=10;
-			++n;
+	int n=3,i,j;
+	int mat[][3] = {{2,3,4},{5,6,7},{8,9,10}};
+	for(i=0;i<n;i++){
+		if(i%2==0){
+			for(j=0;j<n;j++){
+			printf("%d ",mat[i][j]);
+			}	
 		}
-		while(temp2!=0){
-			rem = temp2%10;
-			sum += pow(rem,n);
-			temp2 = temp2/10;
+		else{
+			for(j=n-1;j>=0;j--){
+				printf("%d ",mat[i][j]);
+			}
 		}
-		if(sum == i){
-			printf("%d ",i);
-		}
-		n = 0;
-		sum= 0;
 		
 	}
-	
 }
-
-
-
